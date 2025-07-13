@@ -22,6 +22,18 @@ class Settings(BaseSettings):
     limit_state: str = "Ucr - U10"
     convergence: Dict[str, float] = {"max_iter": 15, "tol": 0.01, "beta_tol": 0.005}
     thresholds: Dict[str, Tuple[str, float]] = {}
+    thresholds: Dict[str, Tuple[str, float]] = {
+        "DS1": ("Ucr_norm", 0.25),
+        "DS2": ("Ucr_norm", 0.50),
+        "DS3": ("Ucr_norm", 0.75),
+        "DS4": ("Ucr_norm", 1.00),
+        "Displacement_DS1": ("sigma_q", 0.1),
+        "Displacement_DS2": ("sigma_q", 0.2),
+        "Displacement_DS3": ("sigma_q", 0.3),
+        "Acceleration_DS1": ("sigma_a", 0.05),
+        "Acceleration_DS2": ("sigma_a", 0.1),
+        "Acceleration_DS3": ("sigma_a", 0.15),
+    }
     use_fsi: bool = True
     flutter: Dict[str, Any] = {"case_dir": "flutter_cases", "wind_speeds": [20, 25, 30, 35, 40, 45, 50, 55, 60]}
     bridge_params: Dict[str, float] = {
